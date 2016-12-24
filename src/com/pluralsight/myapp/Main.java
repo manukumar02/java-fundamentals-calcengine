@@ -1,4 +1,13 @@
-package com.pluralsight.calcengine;
+package com.pluralsight.myapp;
+
+
+import com.pluralsight.calcengine.Adder;
+import com.pluralsight.calcengine.CalculateBase;
+import com.pluralsight.calcengine.CalculateHelper;
+import com.pluralsight.calcengine.Divider;
+import com.pluralsight.calcengine.InvalidStatementException;
+import com.pluralsight.calcengine.Multiplier;
+import com.pluralsight.calcengine.Substractor;
 
 /**
  * Created by MANU on 12/19/2016.
@@ -17,16 +26,16 @@ public class Main {
         };
 
         CalculateHelper helper = new CalculateHelper();
-        for(String statement:statements) {
-           try {
-               helper.process(statement);
-               System.out.println(helper);
-           } catch (InvalidStatementException e) {
-               System.out.println(e.getMessage());
-               if(e.getCause() != null) {
-                   System.out.println(" Original exception: "+ e.getCause().getMessage());
-               }
-           }
+        for (String statement : statements) {
+            try {
+                helper.process(statement);
+                System.out.println(helper);
+            } catch (InvalidStatementException e) {
+                System.out.println(e.getMessage());
+                if (e.getCause() != null) {
+                    System.out.println(" Original exception: " + e.getCause().getMessage());
+                }
+            }
         }
 
 //        double[] leftVals = {100.0d, 25.0d, 225.0d, 11.0d};
