@@ -7,6 +7,9 @@ public class Main {
     public static void main(String[] args) {
 
         String[] statements = {
+                "add 1.0",
+                "add xx 25.0",
+                "addx 0.0 0.0",
                 "divide 100.0 50.0",
                 "add 25.0 92.0",
                 "substract 225.0 22.0",
@@ -15,8 +18,15 @@ public class Main {
 
         CalculateHelper helper = new CalculateHelper();
         for(String statement:statements) {
-            helper.process(statement);
-            System.out.println(helper);
+           try {
+               helper.process(statement);
+               System.out.println(helper);
+           } catch (InvalidStatementException e) {
+               System.out.println(e.getMessage());
+               if(e.getCause() != null) {
+                   System.out.println(" Original exception: "+ e.getCause().getMessage());
+               }
+           }
         }
 
 //        double[] leftVals = {100.0d, 25.0d, 225.0d, 11.0d};
