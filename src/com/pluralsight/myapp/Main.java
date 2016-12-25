@@ -21,14 +21,16 @@ public class Main {
         String[] statements = {
                 "add 25.0 92.0",
                 "power 9.0 5.0",
+                "multiply 20.0 30.0",
         };
 
-        DynamicHelper helper = new DynamicHelper(new MathProcessing[] {
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[]{
                 new Adder(),
                 new PowerOf(),
+                new Multiplier(),
         });
 
-        for(String statement:statements) {
+        for (String statement : statements) {
             String output = helper.process(statement);
             System.out.println(output);
         }
